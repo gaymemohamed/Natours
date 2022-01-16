@@ -55,16 +55,141 @@ body{
     top: 40%;
     left: 50%;
     transform: translate(-50% , -50%);
+
+    /* this fix of the move up after animation */
+    backface-visibility: hidden;
+
+    text-align: center;
 }
 
 .heading-primary .heading-primary-main{
     font-size: 55px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    animation-name: MoveToRight;
+    animation-duration: 1s ;
+    animation-timing-function: ease-out;
+    /* 
+    1- take this time then animation run   
+    2- animation repeat 3 times    
+    3- the way will animation proceed  URL:https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+
+    animation-delay: 3s;
+    animation-iteration-count: 3;
+    animation-timing-function: linear ; */
 }
 
 .heading-primary .heading-primary-sub{
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+
+    /* animation-name: MoveToLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in; */
+    animation: MoveToLeft 1s ease-in;
+    margin-bottom: 40px;
+}
+
+
+
+/* First of animation you should put the zones 0 to 100 , transform property is important , opacity   */
+
+@keyframes MoveToRight{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80%{
+        transform: translateX(10px);
+        /* you can use two different options of transform in one property */
+        /* transform: translateX(10px) rotate(180deg); */
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes MoveToLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80%{
+        transform: translateX(-10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes MoveToTop{
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn:link,
+.btn:visited{
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 100px;
+    /* transition property we can throw it animate elements */
+    transition: all .3s;
+    /* what element you want to animate , the time of animation */
+    position: relative;
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white{
+    background-color: #fff;
+    color: #777;
+}
+
+
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after{
+    background-color: #fff;
+}
+
+.btn:hover::after{
+    transform: scale(1.4 , 1.6);
+    opacity: 0;
+}
+
+.btn-animated{
+    animation: MoveToTop 1s ease-in .75s;
+    /* this will automatically apply the styles to zero until animation start */
+    animation-fill-mode: backwards;
 }
