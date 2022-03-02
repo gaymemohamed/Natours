@@ -1,0 +1,42 @@
+/* First of animation you should put the zones 0 to 100 , transform property is important , opacity   */
+
+@keyframes MoveToRight{
+    0%{
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    80%{
+        transform: translateX(1rem);
+        /* you can use two different options of transform in one property */
+        /* transform: translateX(10px) rotate(180deg); */
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes MoveToLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    80%{
+        transform: translateX(-1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes MoveToTop{
+    0%{
+        opacity: 0;
+        transform: translateY(10rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}

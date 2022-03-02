@@ -1,0 +1,51 @@
+body{
+    font-family: "Lato",sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7;
+    color: $color-gray-dark;
+    padding: 3rem;
+}
+
+.heading-primary{
+    color: $color-white;
+    text-transform: uppercase;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+
+    /* this fix of the move up after animation */
+    backface-visibility: hidden;
+
+    text-align: center;
+    &--main{
+        font-size: 5.5rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+    
+        animation-name: MoveToRight;
+        animation-duration: 1s ;
+        animation-timing-function: ease-out;
+        /* 
+        1- take this time then animation run   
+        2- animation repeat 3 times    
+        3- the way will animation proceed  URL:https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+    
+        animation-delay: 3s;
+        animation-iteration-count: 3;
+        animation-timing-function: linear ; */
+    }
+    &--sub{
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.74rem;
+    
+        /* animation-name: MoveToLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-in; */
+        animation: MoveToLeft 1s ease-in;
+        margin-bottom: 4rem;
+    }
+    
+}
