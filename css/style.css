@@ -170,4 +170,32 @@ body {
   height: 3.5rem;
 }
 
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto;
+  margin-right: 6rem;
+}
+.row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row .col-1-of-2 {
+  background-color: orangered;
+  float: left;
+  width: calc((100% - 6rem) / 2);
+}
+.row .col-1-of-2:not(:last-child) {
+  margin-right: 6rem;
+}
+.row .col-1-of-3 {
+  background-color: orangered;
+  float: left;
+  width: calc((100% - 6rem) / 3);
+}
+
 /*# sourceMappingURL=style.css.map */

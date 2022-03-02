@@ -1,0 +1,34 @@
+.row{
+    max-width: $grid-width;
+    background-color: #eee;
+    margin: 0 auto;
+    margin-right: $gutter-horizontal;
+
+    &:not(:last-child){
+        margin-bottom: $gutter-vertical;
+    }
+    // not operator mains that all rows have the property except last child
+    @include clearfix;
+
+    .col-1-of-2{
+        background-color: orangered;
+        float: left;
+        width: calc((100% - $gutter-horizontal) / 2 );
+
+        &:not(:last-child){
+            margin-right: $gutter-horizontal;
+        }
+    }
+
+    .col-1-of-3{
+        background-color: orangered;
+        float: left;
+        width: calc((100% - $gutter-horizontal) /3);
+
+        &:not(:last-child){
+            
+        }
+    }
+    
+}
+
