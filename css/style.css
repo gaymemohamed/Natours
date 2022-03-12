@@ -542,6 +542,70 @@ body {
   filter: blur(3px) brightness(80%);
 }
 
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(51, 51, 51, 0.8);
+  z-index: 4000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+.popup__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.25);
+  background-color: #fff;
+  height: 50rem;
+  width: 75%;
+  border-radius: 3px;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+  display: table;
+  overflow: hidden;
+  transition: all 0.5s 0.2s;
+}
+.popup__left {
+  width: 33.33333%;
+  display: table-cell;
+}
+.popup__right {
+  width: 66.66666667%;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 5rem;
+}
+.popup__img {
+  display: block;
+  width: 100%;
+}
+.popup__text {
+  font-size: 1.4rem;
+}
+.popup:target {
+  opacity: 1;
+  visibility: visible;
+}
+.popup:target .popup__content {
+  transform: translate(-50%, -50%) scale(1);
+}
+.popup__close {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  font-size: 3rem;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s;
+  line-height: 1;
+}
+.popup__close:hover {
+  color: #55c57a;
+}
+
 .bg-video {
   position: absolute;
   top: 0;
