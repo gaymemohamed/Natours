@@ -1,3 +1,19 @@
+/*
+0-600         To Mobile Screens
+600 - 900     To Tablet Screens
+900 - 1200    To landscape Tablet screens
+1200 - 1800   To normal screens 
+1800 - &      To big screens
+
+$breakpoints
+- Phones
+- tab-port
+- tab-land
+- big desktops 
+
+
+ORDER : Base > Typography > General Layout + Grid > Page Layout + Components
+*/
 * {
   padding: 0;
   margin: 0;
@@ -9,10 +25,31 @@ html {
   font-size: 62.5%;
   /* better practice */
 }
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
 
 body {
   box-sizing: border-box;
   /* better practice */
+  padding: 3rem;
+}
+@media (max-width: 56.25em) {
+  body {
+    padding: 0;
+  }
 }
 
 /* First of animation you should put the zones 0 to 100 , transform property is important , opacity   */
@@ -60,24 +97,21 @@ body {
   /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   /* this fix of the move up after animation */
   backface-visibility: hidden;
+  margin-bottom: 6rem;
   text-align: center;
 }
 .heading-primary--main {
+  display: block;
   font-size: 5.5rem;
   font-weight: 400;
-  letter-spacing: 3.5rem;
+  letter-spacing: 3rem;
   animation-name: MoveToRight;
   animation-duration: 1s;
   animation-timing-function: ease-out;
@@ -90,7 +124,14 @@ body {
   animation-iteration-count: 3;
   animation-timing-function: linear ; */
 }
+@media (max-width: 37.5em) {
+  .heading-primary--main {
+    font-size: 4.5rem;
+    letter-spacing: 1;
+  }
+}
 .heading-primary--sub {
+  display: block;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.74rem;
@@ -99,6 +140,11 @@ body {
   animation-timing-function: ease-in; */
   animation: MoveToLeft 1s ease-in;
   margin-bottom: 4rem;
+}
+@media (max-width: 37.5em) {
+  .heading-primary--sub {
+    letter-spacing: 0.5;
+  }
 }
 
 .heading-secondary {
@@ -111,6 +157,16 @@ body {
   -webkit-background-clip: text;
   color: transparent;
   transition: all 0.2s;
+}
+@media (max-width: 56.25em) {
+  .heading-secondary {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .heading-secondary {
+    font-size: 2.5rem;
+  }
 }
 .heading-secondary:hover {
   transform: skewY(2deg) skewX(15deg) scale(1.1);
@@ -679,6 +735,11 @@ body {
   /* x Y -> x   Y -> X    Y -> X  Y */
   /* first to second  to third to fourth(the end from bottom x return to 0 but y to 100%)*/
 }
+@media (max-width: 37.5em) {
+  .header {
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+}
 .header__logo-box {
   position: absolute;
   top: 4rem;
@@ -687,20 +748,44 @@ body {
 .header__logo {
   height: 3.5rem;
 }
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
 .row {
   max-width: 114rem;
   margin: 0 auto;
-  margin-right: 6rem;
 }
 .row:not(:last-child) {
   margin-bottom: 8rem;
+}
+@media (max-width: 56.25em) {
+  .row {
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
 }
 .row [class^=col-] {
   float: left;
 }
 .row [class^=col-]:not(:last-child) {
   margin-right: 6rem;
+}
+@media (max-width: 56.25em) {
+  .row [class^=col-]:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 6rem;
+  }
+}
+@media (max-width: 56.25em) {
+  .row [class^=col-] {
+    width: 100% !important;
+  }
 }
 .row .col-1-of-2 {
   width: calc((100% - 6rem) / 2);
@@ -731,6 +816,11 @@ body {
   padding: 10rem 0;
   font-size: 1.4rem;
 }
+@media (max-width: 56.25em) {
+  .footer {
+    padding: 8rem 0;
+  }
+}
 .footer__logo-box {
   text-align: center;
 }
@@ -739,10 +829,21 @@ body {
   height: auto;
   margin-bottom: 5rem;
 }
+@media (max-width: 56.25em) {
+  .footer__logo {
+    margin-bottom: 4rem;
+  }
+}
 .footer__navigation {
   border-top: 1px solid #777;
   padding-top: 3rem;
   display: inline-block;
+}
+@media (max-width: 56.25em) {
+  .footer__navigation {
+    width: 100%;
+    text-align: center;
+  }
 }
 .footer__list {
   list-style: none;
@@ -772,6 +873,12 @@ body {
   width: 80%;
   float: right;
 }
+@media (max-width: 56.25em) {
+  .footer__copy {
+    width: 100%;
+    float: none;
+  }
+}
 
 .navigation__checkbox {
   display: none;
@@ -789,6 +896,12 @@ body {
   text-align: center;
   cursor: pointer;
 }
+@media (max-width: 56.25em) {
+  .navigation__button {
+    top: 2rem;
+    right: 3rem;
+  }
+}
 .navigation__background {
   width: 6rem;
   height: 6rem;
@@ -799,6 +912,12 @@ body {
   background-image: radial-gradient(#7ed56f, #28b485);
   z-index: 1000;
   transition: all 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+}
+@media (max-width: 56.25em) {
+  .navigation__background {
+    top: 2.5rem;
+    right: 3.5rem;
+  }
 }
 .navigation__nav {
   height: 100vh;
