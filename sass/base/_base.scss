@@ -28,6 +28,7 @@ body{
     /* better practice */
     padding: 3rem;
     @include respond(tab-port){ 
-        padding: 0;   
+        padding: 0;
+        overflow-x: hidden;
     }
 }

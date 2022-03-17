@@ -35,8 +35,8 @@ body{
         animation-timing-function: linear ; */
 
         @include respond (phone){
-            font-size: 4.5rem;
-            letter-spacing: 1;
+            font-size: 3.5rem;
+            letter-spacing: 2rem;
         }
     }
     &--sub{
@@ -51,7 +51,7 @@ body{
         animation: MoveToLeft 1s ease-in;
         margin-bottom: 4rem;
         @include respond (phone){
-            letter-spacing: .5;
+            letter-spacing: 1rem;
         }
     }
     

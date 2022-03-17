@@ -16,7 +16,9 @@
         border-bottom: 3px solid transparent;
         display: block;
         transition: all .3s;
-
+        @include respond(tab-port){
+            width: 100%;
+        }
         // this is the pseudo element that target the input placeholder
         &::-webkit-input-placeholder{
         color: $color-gray-light-3;
