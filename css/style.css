@@ -749,13 +749,20 @@ body {
   overflow: hidden;
   transition: all 0.5s 0.2s;
 }
+@media (max-width: 56.25em) {
+  .popup__content {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .popup__left {
   width: 33.33333%;
   display: table-cell;
 }
 @media (max-width: 56.25em) {
   .popup__left {
-    display: none;
+    width: 50%;
+    display: flex;
   }
 }
 .popup__right {
